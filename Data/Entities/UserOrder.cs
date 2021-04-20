@@ -13,8 +13,6 @@ namespace BookTalk.Data
         public string OrderId { get; set; }
         public Order Order { get; set; }
 
-        [NotMapped]
-        [ForeignKey("Id")]
         public string BookId { get; set; }
         public Book Book { get; set; }
 

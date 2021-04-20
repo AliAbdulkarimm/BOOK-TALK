@@ -7,9 +7,9 @@ using BookTalk.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BookTalk.Pages
+namespace BookTalk.Pages.Store
 {
-    public class StoreModel : PageModel
+    public class IndexModel : PageModel
     {
         public string Name { get; private set; }
 
@@ -18,7 +18,7 @@ namespace BookTalk.Pages
         private Context _context;
         private CustomerCartService _cartService;
 
-        public StoreModel(Context context, CustomerCartService cartService)
+        public IndexModel(Context context, CustomerCartService cartService)
         {
             _context = context;
             _cartService = cartService;

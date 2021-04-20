@@ -27,7 +27,7 @@ namespace BookTalk.Data
         public User User { get; set; }
 
         
-        public List<UserOrder> UserOrder { get; set; }
+        public virtual List<UserOrder> UserOrder { get; set; }
 
         public Order()
         {
