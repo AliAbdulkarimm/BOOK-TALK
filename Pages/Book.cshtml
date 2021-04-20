@@ -1,0 +1,17 @@
+﻿@page "{bookId}"
+@model BookTalk.Pages.BookModel
+
+
+<div>
+
+    <h1>@Model.contentModel.Title</h1>
+
+    @if (!string.IsNullOrEmpty(Model.contentModel.ImageUrl))
+    {
+        <img src="@Model.contentModel.ImageUrl" class="img-fluid" alt="" />
+    }
+
+    <p>@Model.contentModel.Description</p>
+    <p>@Model.contentModel.Price SEK</p>
+
+</div>

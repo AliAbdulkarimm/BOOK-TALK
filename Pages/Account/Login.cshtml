@@ -1,0 +1,79 @@
+﻿@page "{value?}"
+@model BookTalk.Pages.Account.LoginModel
+@{
+}
+
+@section Header{ 
+
+<style>
+
+    body {
+        background-color: #282828 !important;
+    }
+    footer {
+        display: none !important;
+    }
+
+</style>
+
+
+}
+
+<div class="row justify-content-md-center">
+
+            <div class="formContainer">
+
+
+                <center>
+                    <div class="formHeader">
+                        <i class="fas fa-user large-icon"></i>
+                    </div>
+                </center>
+
+
+                <div class="formBody">
+
+
+                    <form asp-page-handler="SignIn" method="post">
+
+
+              
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                    </div>
+                                    <input type="text" name="user" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                                </div>
+                            </div>
+
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-key"></i></div>
+                                    </div>
+                                    <input type="password"  name="password" class="form-control" id="inlineFormInputGroup" placeholder="Password">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group form-check">
+                                <input name="rememberMe" type="checkbox" class="form-check-input">
+                                <label class="form-check-label checbox-large-label" for="exampleCheck1">Keep me signed in!</label>
+                            </div>
+
+                            <button type="submit" <i class="fas fa-sign-in-alt"> Login</button>
+
+                            <p style="color: red;">@ViewData["message"]</p>
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+
+        </div>

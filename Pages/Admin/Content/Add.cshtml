@@ -1,0 +1,36 @@
+﻿@page
+@model BookTalk.Pages.Admin.Content.AddModel
+@{
+}
+
+
+        @*public string Title { get; set; }
+        public string Body { get; set; }
+        public string ImageUrl { get; set; }
+        public bool IsInMenu { get; set; }
+        public bool IsPublished { get; set; }
+
+        public int MenuOrder { get; set; }*@
+
+
+<form asp-page-handler="AddContent" method="post">
+
+    <input type="text" placeholder="Enter the title" name="title" />
+    <br />
+    <textarea name="body" placeholder="Content body..."></textarea>
+    <br />
+    <input type="text" placeholder="Image URL" name="imgurl" />
+    <br />
+    <input type="checkbox" name="isinmenu" />
+    <label for="isinmenu">In menu</label>
+    <br />
+    <input type="checkbox" name="ispublished" />
+    <label for="ispublished">Publish</label>
+    <br />
+    <input type="number" placeholder="Order in menu" name="menuorder" />
+    <br />
+    <button>Add!</button>
+    <br />
+    <span style="color:red;">@ViewData["message"]</span>
+
+</form>

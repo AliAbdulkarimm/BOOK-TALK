@@ -1,0 +1,25 @@
+﻿@page "{contentid}"
+@model BookTalk.Pages.Admin.Content.EditModel
+
+<form asp-page-handler="SaveContent" method="post">
+
+    <input type="text" placeholder="Enter the title" name="title" value="@Model._content.Title" />
+    <br />
+    <textarea name="body" placeholder="Content body...">@Model._content.Body</textarea>
+    <br />
+    <input type="text" placeholder="Image URL" name="imgurl" value="@Model._content.ImageUrl"/>
+    <br />
+    <input type="checkbox" name="isinmenu" value="@Model._content.IsInMenu"/>
+    <label for="isinmenu">In menu</label>
+    <br />
+    <input type="checkbox" name="ispublished" value="@Model._content.IsPublished" />
+    <label for="ispublished">Publish</label>
+    <br />
+    <input type="number" placeholder="Order in menu" name="menuorder" value="@Model._content.MenuOrder" />
+    <br />
+    <input type="hidden" name="contentid" value="@Model._content.Id" />
+    <button>Update!</button>
+    <br />
+    <span style="color:red;">@ViewData["message"]</span>
+
+</form>

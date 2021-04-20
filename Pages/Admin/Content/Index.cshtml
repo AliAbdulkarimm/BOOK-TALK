@@ -1,0 +1,91 @@
+﻿@page
+@model BookTalk.Pages.Admin.Content.IndexModel
+
+<ul class="nav justify-content-center adminNav">
+
+    <li class="nav-item">
+        <a class="nav-link noHover" href="#">Tools: </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link active" href="/admin/content/add"><i class="fas fa-plus-square"></i></a>
+    </li>
+
+</ul>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Menu</th>
+            <th scope="col">Published</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @for (int i = 0; i < Model.contentList.Count; i++)
+        {
+
+
+            <tr>
+                <th scope="row">@Model.contentList[i].MenuOrder</th>
+                <td><img src="@Model.contentList[i].ImageUrl" alt="" class="img-fluid" style="max-height: 20px;" /></td>
+                <td>@Model.contentList[i].Title</td>
+                <td>@Model.contentList[i].IsInMenu</td>
+                <td>@Model.contentList[i].IsPublished</td>
+                <td><a href="/admin/content/edit/@Model.contentList[i].Id"><i class="fas fa-edit"></i></a></td>
+
+                <td>
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_@i">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete Warning!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Delete @Model.contentList[i].Title ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    <form asp-page-handler="DeleteContent" method="post">
+
+                                        <input type="hidden" value="@Model.contentList[i].Id" name="contentid" />
+
+
+                                        <button class="btn btn-primary">Yes</button>
+
+                                    </form>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>

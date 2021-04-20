@@ -1,0 +1,43 @@
+﻿@inject Context context;
+@inject CustomerCartService cartService;
+
+
+<div class="btn-group">
+    <button type="button" class="btn dropdown-toggle cartMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas dropdown-cart-icon fa-user-circle"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+        <div class="cartDropDown">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="dropdown-item" href="/admin/store">Store Manager</a>
+                    <a class="dropdown-item" href="/admin/content">Content Manager</a>
+                            
+                }
+
+                <a class="dropdown-item" href="/account/register">Settings</a>
+                <a class="dropdown-item" href="/account/logout">Sign Out</a> 
+                
+                }
+                else
+                {
+                    <a class="dropdown-item" href="/account/register">Register</a>
+                    <a class="dropdown-item" href="/account/login">Sign In</a>                 
+                }
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+       
+  

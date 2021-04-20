@@ -1,0 +1,54 @@
+﻿@page
+@model BookTalk.Pages.StoreModel
+@inject CurrencyService currencyService;
+
+
+  
+<div class="row">
+
+    @{
+
+        BookTalk.Models.ExchangeRateModel rates = currencyService.Rates();
+
+
+
+
+        @foreach (var book in Model.Books)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-12 product-space">
+
+                <div class="p-6">
+                    <div class="card">
+                        <img src="@book.CoverUrl" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@book.Title</h5>
+                            <span class="badge badge-primary price-label">@book.Price SEK</span>
+                            <br />
+                            <span>$@(book.Price * rates.ConversionRates.FirstOrDefault(x => x.Key == "USD").Value)</span>
+
+                            <p class="card-text">@book.Description.Substring(0, 100)...</p>
+
+
+
+
+                            <form asp-page-handler="AddToCart" method="post">
+                              
+                                <button class="btn btn-primary" type="submit"><i class="fas fa-cart-plus"></i></button>
+
+                                <a href="/book/@book.Id" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>
+
+                                <input type="hidden" name="bookId" value="@book.Id.ToString()" />
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+    }
+</div>

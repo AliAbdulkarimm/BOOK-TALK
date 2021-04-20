@@ -1,0 +1,94 @@
+﻿@inject NavigationService navService;
+@inject Context context;
+@inject CustomerCartService customerCart; 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookTalk</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/all.css" rel="stylesheet">
+
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+    @await RenderSectionAsync("Header", required: false)
+
+</head>
+<body>
+
+
+    @if (navService.NewUser())
+    { 
+    
+        
+    <div class="alert alert-danger" role="alert">
+        WE HAVE COOKIES! <a href="https://localhost:44307/content/Cookies">Read here</a>
+    </div>
+    
+    }
+
+    <header class="">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><i class="fas logoIcon fa-book"></i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-color" asp-area="" asp-page="/Store">Store</a>
+                        </li>
+
+                        @foreach (var nav in navService.GetMenu())
+                        {
+                            <li class="nav-item">
+                                <a href="/content/@nav.Title" class="nav-link nav-color">@nav.Title</a>
+                            </li>
+                        }
+
+                    </ul>
+
+ 
+                    <ul class="nav justify-content-end">
+
+                        <partial name="_Profile" />
+
+                        <partial name="_Cart" />
+
+                    </ul>
+
+
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - BookTalk - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

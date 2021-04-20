@@ -1,0 +1,113 @@
+﻿@page
+@model BookTalk.Pages.Checkout.IndexModel
+@{ }
+
+@inject CustomerCartService cartService;
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Media</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col"> </th>
+            <th scope="col"><center>Quantity</center></th>
+            <th scope="col"> </th>
+            <th scope="col"><center>Remove</center></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{ int count = 1;
+
+                        foreach (var sum in cartService.GetCheckoutSum())
+                        {
+            <tr>
+                <th scope="row">@count</th>
+                <td><img src="@sum.Book.CoverUrl" alt="@sum.Book.Title" class="img-fluid cartMedia" /></td>
+
+                <td>@sum.Book.Title</td>
+                <td>@sum.Book.Price</td>
+
+
+
+
+                <td>
+                    <center>
+                        <form asp-page-handler="DecrementItem" method="post">
+
+                            <input type="hidden" value="@sum.Book.Id" name="bookid" />
+
+                            <button class="btn-clear"><i class="fas fa-arrow-alt-circle-left"></i></button>
+
+
+                        </form>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        @sum.Quantity
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <form asp-page-handler="AddToCart" method="post">
+
+                            <input type="hidden" value="@sum.Book.Id" name="bookid" />
+
+                            <button class="btn-clear"><i class="fas fa-arrow-alt-circle-right"></i></button>
+                        </form>
+                    </center>
+                </td>
+                <td>
+
+                    <center>
+                        <form asp-page-handler="RemoveFromCart" method="post">
+                            <input type="hidden" value="@sum.Book.Id" name="bookid" />
+                            <button class="btn-clear">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </center>
+                </td>
+            </tr> count++;
+                        } }
+
+
+    </tbody>
+</table>
+
+
+
+<table class="float-lg-right">
+
+    <tr>
+        <td>
+            <table class="float-right">
+                <tr>
+                    <td class="right-align-text"><b>Total:</b> </td>
+                    <td class="table-spacer"></td>
+                    <td>@cartService.GetCheckoutSum().Sum(x => x.Book.Price * x.Quantity)</td>
+                </tr>
+
+                <tr>
+                    <td><b>VAT:</b> </td>
+                    <td class="table-spacer"></td>
+                    <td>0%</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="/checkout/summary" class="btn btn-lg checkout-sum-button float-right" role="button" aria-pressed="true">Proceed to Payment details</a>
+        </td>
+    </tr>
+
+
+</table>
+

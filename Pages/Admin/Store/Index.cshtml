@@ -1,0 +1,79 @@
+﻿@page "{value?}"
+@model BookTalk.Pages.Admin.Store.IndexModel
+
+
+
+<ul class="nav justify-content-center adminNav">
+
+    <li class="nav-item">
+        <a class="nav-link noHover" href="#">Tools: </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link active" href="/admin/store/add"><i class="fas fa-plus-square"></i></a>
+    </li>
+
+</ul>
+<span>@ViewData["message"]</span>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cover</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Visible</th>
+            <th scope="col">Featured</th>
+            <th scope="col"><i class="fas fa-bars"></i></th>
+            <th scope="col"><i class="fas fa-trash-alt"></i></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @for (int i = 0; i < Model.books.Count; i++)
+        {
+            int rowCount = i + 1;
+
+            string value = (string)ViewContext.RouteData.Values["value"];
+            
+            bool isMatch = string.IsNullOrWhiteSpace(value) ? false : (Model.books[i].Id == value ? true : false);
+
+
+        <tr class="@(isMatch ? "redLabel" : string.Empty) ">
+            <th scope="row">@rowCount</th>
+            <th scope="col"><button type="button" class="btn " data-toggle="modal" data-target=".modal-@i"><img src="@Model.books[i].CoverUrl" alt="@Model.books[i].Title" class="img-fluid" style="max-height: 20px" /></button></th>
+            <th scope="col">@Model.books[i].Title</th>
+            <th scope="col">@Model.books[i].Price</th>
+            <th scope="col">@Model.books[i].IsVisible</th>
+            <th scope="col">@Model.books[i].IsFeatured</th>
+            <th scope="col"><i class="fas fa-edit"></i></th>
+            <th scope="col"><i class="fas fa-minus-square"></i></th>
+
+        </tr>
+
+        }
+
+
+        @for (int i = 0; i < Model.books.Count; i++)
+        {
+            <div class="modal fade modal"-@i tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <img src="@Model.books[i].CoverUrl" alt="@Model.books[i].Title" class="img-fluid" style="max-height: 50%" />
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+
+
+    </tbody>
+</table>
+
+
+
+

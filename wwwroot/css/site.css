@@ -1,0 +1,520 @@
+﻿:root {
+    --brightColor: #e5e5e5;
+    --darkColor: #282828;
+    --blueColor: #007bff;
+    --navBgColor: rgba(255,255,255,0.1);
+    --formBgColor: rgba(219, 217, 208,1);
+    --greyColor: #BFBFBF;
+    --formBackground: #FFF;
+
+    --blueColor1: #131626;
+    --blueColor2: #4C6873;
+    --blueColor3: #89C2D9;
+    --blueColor4: #B3E0F2;
+    --blueColor5: #D8F0F2;
+}
+
+
+header {
+    background-color: var(--blueColor1);
+    position: relative;
+    z-index: 99;
+    width: 100%;
+}
+
+html {
+
+    min-height: 100%;
+    overflow-y: scroll;
+}
+
+.cartMedia {
+    max-height: 40px;
+}
+
+.cartTitle {
+    font-weight: bold;
+    padding-left: 20px;
+}
+.card {
+    z-index: 0 !important;
+    position: relative;
+}
+
+.dropdown-cart-icon {
+    color: var(--blueColor4) !important;
+}
+.carousel {
+    z-index: 0 !important;
+}
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background-color: var(--lightColor);
+    color: var(--darkColor) !important;
+}
+
+nav {
+    background-color: var(--deepDarkColor) !important;
+    
+    position: absolute;
+    z-index: 9999;
+}
+
+.table-spacer {
+    width: 50px;
+}
+
+
+.right-align-text {
+    text-align: right;
+}
+
+.checkout-button {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: #fff !important;
+    background-color: var(--blueColor2);
+    border-color: var(--blueColor3);
+}
+
+.checkout-sum-button {
+
+    color: #fff !important;
+    background-color: var(--blueColor2);
+    border-color: var(--blueColor3);
+}
+
+
+.btn-clear {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--blueColor3);
+    
+}
+
+    .btn-clear:hover {
+        background-color: transparent;
+        border: none;
+        color: var(--blueColor2);
+    }
+
+
+.cartDropDown a:hover {
+    color: var(--blueColor2) !important;
+}
+
+nav a {
+    transition: all 200ms ease-in-out;
+    color: var(--blueColor4) !important;
+}
+
+
+
+nav a:hover {
+    color: var(--brightColor) !important;
+    font-weight: 500;
+    transition: all 200ms ease-in-out;
+}
+
+
+
+footer {
+    background-color: var(--greyColor) !important;
+    margin-top: 100px;
+}
+
+footer a {
+    color: var(--brightColor) !important;
+}
+
+
+.mainCategoryTitle {
+    font-size: 1.2rem !important;
+    font-weight: 400;
+    color: var(--greyColor) !important;
+}
+
+
+.subCategoryTitle {
+    color: var(--lightGreyColor) !important;
+}
+
+
+.productImageContainer {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 250px;
+    overflow: hidden !important;
+    opacity: 0.3;
+
+}
+
+
+.blur {
+    filter: blur(10px);
+}
+
+.mainImageContainer {
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 250px;
+
+    position: static;
+    z-index: 1;
+
+    margin-top: -250px;
+
+}
+
+.col-bottom-pad {
+    margin-bottom: 20px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+
+
+.large-icon {
+    font-size: 3rem;
+}
+
+.cart-dropdown-menu {
+    min-width: 40rem;
+}
+
+.formContainer {
+    height: 350px;
+    margin-top: -175px;
+    padding-top: 30%;
+}
+
+.formBody {
+    background-color: var(--formBgColor);
+    width: 500px;
+    padding: 50px;
+    border-radius: 3px;
+    box-shadow: 0 0 25px 1px rgba(0,0,0,.5);
+    height: 350px;
+    animation: slideInDown;
+    animation-duration: 1s;
+}
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+
+.card-body {
+    text-align: center;
+}
+
+.price-label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.product-space {
+    margin-bottom: 20px;
+}
+
+.carousel-arrows {
+    color: rgba(0, 0, 0, 0.5) !important;
+    font-size: 4rem;
+}
+
+.carousel-caption {
+    background-color: rgba(255,255,255,0.5) !important;
+    border-radius: 5px;
+    color: rgba(0,0,0,0.7) !important;
+}
+
+.carousel-backdrop {
+    
+    
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+}
+
+.img-ontop {
+    z-index: 999 !important;
+    position: static !important;
+    margin: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 100px 10px rgba(0,0,0,0.7);
+    border:  5px solid rgba(255,255,255,0);
+}
+
+.layerOne {
+    position: absolute;
+    width: 100% !important;
+}
+
+.layerTwo {
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+    filter: brightness(200%) contrast(50%) blur(50px) saturate(100%) ;
+    position: relative;
+    width: 100% !important;
+    height: 550px !important;
+    display: block !important;
+}
+
+.floatLeft {
+    float: left;
+    width: 35%;
+}
+
+.floatRight {
+    float: right;
+    width: 55%;
+    left: 35%;
+}
+
+.carousel-title {
+    font-size: 2rem;
+
+}
+
+
+.carousel-title a {
+    color: rgba(0,0,0,8) !important;
+}
+
+
+.carousel-p {
+    font-size: 1.15rem;
+    font-weight: 500;
+   
+}
+
+.vertical-center {
+    padding-right: 50px !important;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+.carousel {
+    border-radius: 5px !important;
+}
+
+.totalPriceLabel {
+    background-color: var(--brightColor);
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+
+.cartTitle {
+    font-size: 1rem;
+    text-align: left; 
+    white-space: nowrap;
+}
+
+.cartImage {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.btn-account {
+
+}
+
+.menu-account {
+
+}
+
+.redLabel{
+    background-color: red !important;
+}
+
+.redLabel th {
+    background-color: red !important;
+}
+
+.logoIcon {
+    font-size: 4rem;
+    color: var(--blueColor5);
+}
+
+/* Color Theme Swatches in Hex */
+.blue-1-hex {
+    color: #47A4BF;
+}
+
+.blue-2-hex {
+    color: #2F6D7F;
+}
+
+.blue-3-hex {
+    color: #5FDBFF;
+}
+
+.blue-4-hex {
+    color: #183740;
+}
+
+.blue-5-hex {
+    color: #55C5E5;
+}
+
+/* Color Theme Swatches in RGBA */
+.blue-1 {
+    color: rgba(70, 164, 191, 1);
+}
+
+.blue-2 {
+    color: rgba(47, 109, 126, 1);
+}
+
+.blue-3 {
+    color: rgba(94, 219, 255, 1);
+}
+
+.blue-4 {
+    color: rgba(23, 55, 63, 1);
+}
+
+.blue-5 {
+    color: rgba(84, 196, 228, 1);
+}
+
+/* Color Theme Swatches in HSLA */
+.blue-1-hsla {
+    color: hsla(193, 48, 51, 1);
+}
+
+.blue-2-hsla {
+    color: hsla(193, 45, 34, 1);
+}
+
+.blue-3-hsla {
+    color: hsla(193, 100, 68, 1);
+}
+
+.blue-4-hsla {
+    color: hsla(193, 45, 17, 1);
+}
+
+.blue-5-hsla {
+    color: hsla(193, 73, 61, 1);
+}
+
+
+.adminNav {
+    background-color: var(--darkColor);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.adminNav a {
+    color: var(--brightColor);
+    margin: 5px;
+    border-radius: 5px; 
+}
+
+    .adminNav a:hover {
+        color: var(--brightColor);
+        background-color: var(--navBgColor);
+    }
+
+.noHover:hover {
+    background-color: rgba(255,255,255,0) !important;
+}
+
+.table a {
+
+    color: var(--brightColor);
+}
+
+.modal {
+    color: var(--darkColor) !important;
+}

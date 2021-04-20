@@ -1,0 +1,28 @@
+﻿@page
+@model BookTalk.Pages.Admin.Store.AddModel
+@{
+}
+
+@*string title, string description, string coverurl, double price, int stock*@
+
+<form asp-page-handler="AddNewBook" method="post">
+
+
+    <input type="text" name="title" placeholder="Book title" />
+    <br />
+    <input type="text" name="description" placeholder="Description" />
+    <br />
+    <input type="text" name="coverurl" placeholder="Cover URL" />
+    <br />
+    <input type="number" name="price" placeholder="Price" />
+    <br />
+    <input type="number" name="stock" placeholder="Stock" />
+    <br />
+    <input type="number" name="sale" placeholder="Sale %" />
+    <br />
+    <span style="color: red;">@ViewData["message"]</span>
+    <br />
+    <button>Add!</button>
+
+
+</form>

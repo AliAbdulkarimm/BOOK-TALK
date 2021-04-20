@@ -1,0 +1,35 @@
+﻿@page
+@model BookTalk.Pages.DemoModel
+@{
+}
+
+
+<form asp-page-handler="Login" method="post">
+
+    <input type="text" placeholder="Enter your username or password" name="user" />
+    <br />
+    <br />
+    <input type="password" placeholder="Enter your password" name="password" />
+    <br />
+    <br />
+    <button>Login</button>
+    <br />
+    <br />
+    <span style="color: red;">@ViewData["message"]</span>
+
+
+</form>
+
+<hr />
+
+
+@foreach (var user in Model.Users)
+{
+    <div>
+        <span>Email: @user.Email</span><br />
+        <span>User: @user.Name</span><br />
+        <span>Password: @user.Password</span><br />
+    </div>
+    <hr />
+}
+

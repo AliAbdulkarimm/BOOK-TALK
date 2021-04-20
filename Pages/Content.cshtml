@@ -1,0 +1,63 @@
+﻿@page "{pageName}"  
+@model BookTalk.Pages.ContentModel
+
+
+<div>
+
+    <h1>@Model.contentModel.Title</h1>
+
+    @if (!string.IsNullOrEmpty(Model.contentModel.ImageUrl))
+    {
+        <img src="@Model.contentModel.ImageUrl" class="img-fluid" alt="" />
+    }
+
+
+
+
+    @Html.Raw(@Model.contentModel.Body)
+
+
+
+    @if (Model.showContactForm)
+    {
+
+
+<form asp-page-handler="SendEmail" method="post">
+
+    <div class="form-group">
+        <input type="email" class="form-control" asp-for="emailModel.Email" placeholder="Email" />
+    </div>
+
+
+    <div class="form-group">
+
+        <input type="text" class="form-control" asp-for="emailModel.Message" placeholder="Message..." />
+
+    </div>
+    <div class="form-group">
+
+        <input type="file" name="file">
+
+    </div>
+
+    
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-primary">Send</button>
+
+    </div>
+
+
+</form>
+
+
+
+    }
+
+    @if (Model.showEmailSentSuccess)
+    {
+
+        <span>EMAIL WAS SENT</span>
+    }
+
+</div>

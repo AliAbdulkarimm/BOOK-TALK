@@ -1,0 +1,113 @@
+﻿@inject Context context;
+@inject CustomerCartService cartService;
+
+
+<div class="btn-group">
+    <button type="button" class="btn dropdown-toggle cartMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas dropdown-cart-icon fa-shopping-cart"></i> <span class="badge badge-warning">@cartService.GetCartCount()</span>
+    </button>
+    <div class="dropdown-menu cart-dropdown-menu dropdown-menu-right">
+        <div class="cartDropDown">
+
+
+
+
+            @if (cartService.GetCartCount() != 0)
+            {
+
+
+        <h5 class="card-title cartTitle">Items in your cart</h5>
+
+                        <table class="table">
+                            <thead class="cart-menu-header">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Media</th>
+                                    <th scope="col">Book</th>
+                                    <th scope="col">Quanity</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{ int count = 1;
+
+                                    foreach (var sum in cartService.GetCheckoutSum())
+                                    {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td><img src="@sum.Book.CoverUrl" alt="@sum.Book.Title" class="img-fluid cartMedia" /></td>
+                        <td>@sum.Book.Title</td>
+                        <td>@sum.Quantity</td>
+                        <td>@(sum.Quantity * sum.Book.Price)</td>
+
+                    </tr> count++;
+                                    } }
+
+                            </tbody>
+                        </table> }
+                    else
+                    {
+
+        <div class="dropdown-menu">
+
+            @if (cartService.GetCartCount() != 0)
+            {
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">Quanity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{ int count = 1;
+
+                    foreach (var sum in cartService.GetCheckoutSum())
+                    {
+        <tr>
+            <th scope="row">@count</th>
+            <td>@sum.Book.Title</td>
+            <td>@sum.Quantity</td>
+            <td>@(sum.Quantity * sum.Book.Price)</td>
+
+        </tr> count++;
+                            } }
+
+            </tbody>
+        </table> }
+    else
+    {
+
+        <div class="card">
+            <div class="card-body">
+                You have no products in your cart. Go buy something!
+            </div>
+        </div>}
+
+        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                You have no products in your cart. Go buy something!
+                            </div>
+                        </div>}
+
+            <hr />
+            <a href="/checkout" class="btn btn-lg checkout-button float-right" role="button" aria-pressed="true">Go to checkout!</a>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
